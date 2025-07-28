@@ -1,0 +1,19 @@
+{
+  "name": "Acadlyst - Your Academic Catalyst",
+  "short_name": "Acadlyst",
+  "description": "Your gateway to academic success with curated notes, lectures, and placement resources.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#2563EB",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "categories": ["education", "productivity"],
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}
