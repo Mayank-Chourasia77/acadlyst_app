@@ -1,73 +1,74 @@
-# Welcome to your Acadylst project
+# 📚 Acadlyst
 
-## Project info
+Acadlyst is a modern, community-driven educational resource hub — think Zomato for learning — tailored to empower students from all universities across India and beyond. It curates the best notes, lectures, placement prep material, and more with a viral loop, gamified profile system, and full user-driven content ecosystem.
 
-**URL**: https://acadylst.dev/projects/6da46285-bcba-4643-b053-4dc09bad8c55
+Live Project URL: https://acadlystapp.vercel.app/
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 Getting Started
 
-**Use Acadylst**
+To run this project locally:
 
-Simply visit the [Acadylst Project](https://acadylst.dev/projects/6da46285-bcba-4643-b053-4dc09bad8c55) and start prompting.
+1. Clone the repository:
+   git clone https://github.com/Mayank-Chourasia77/acadlyst
 
-Changes made via Acadylst will be committed automatically to this repo.
+2. Navigate into the project folder:
+   cd acadlyst
 
-**Use your preferred IDE**
+3. Install dependencies:
+   npm install
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Acadylst.
+4. Start the development server:
+   npm run dev
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+🛠️ Prerequisite: Make sure Node.js and npm are installed (recommended via nvm).
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🧠 AI Assistant (Chatbot)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+The AI chatbot uses the free Groq API (Mistral 7B model) for fast educational Q&A:
 
-# Step 3: Install the necessary dependencies.
-npm i
+- Fast streaming via Vercel AI SDK  
+- Follow-up question support  
+- Redis caching with Upstash  
+- Example use: Ask doubt or explore summaries  
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+---
 
-**Edit a file directly in GitHub**
+## 📂 Content Upload & Discovery
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- Users can upload notes/lectures/placements via link or file  
+- Uploaded files are stored via Supabase  
+- Voting system ranks best content  
+- Anonymous download access (login needed to upload or earn)  
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🏆 Gamification & Referral
 
-## What technologies are used for this project?
+- Badge system based on contributions  
+- UPI-enabled donations for top contributors  
+- Leaderboards for most liked creators  
+- Invite/refer users to grow your profile (viral loop)
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
+## ⚙️ Tech Stack
+
+- Next.js (App Router)
 - React
-- shadcn-ui
+- TypeScript
 - Tailwind CSS
+- shadcn/ui
+- Supabase (Database + Storage + Auth)
+- Redis via Upstash
+- Vercel AI SDK
+- Groq API (Free Mistral 7B inference)
+- Hosted on Vercel
 
-## How can I deploy this project?
+---
 
-Simply open [Acadylst](https://acadylst.dev/projects/6da46285-bcba-4643-b053-4dc09bad8c55) and click on Share -> Publish.
 
-## Can I connect a custom domain to my Acadylst project?
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.acadylst.dev/tips-tricks/custom-domain#step-by-step-guide)
