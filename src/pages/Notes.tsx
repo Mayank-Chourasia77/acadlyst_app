@@ -242,18 +242,18 @@ const Notes = () => {
       ) : notes && notes.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {notes.map((note) => (
-            <Card key={note.id} className={`hover:shadow-lg transition-shadow ${note.is_hidden ? 'border-yellow-500 border-2 bg-yellow-50' : ''}`}>
-              <CardHeader>
+            <Card key={note.id} className={`hover:shadow-lg transition-shadow h-full flex flex-col ${note.is_hidden ? 'border-yellow-500 border-2 bg-yellow-50' : ''}`}>
+              <CardHeader className="pb-3">
                 {note.is_hidden && (
                   <div className="flex items-center space-x-2 text-yellow-700 mb-2 p-2 bg-yellow-100 rounded-md">
                     <ShieldAlert className="h-5 w-5" />
                     <span className="font-semibold text-sm">Content Disabled - Pending Review</span>
                   </div>
                 )}
-                <div className="flex justify-between items-start mb-2">
+                <div className="flex justify-between items-start">
                   <Badge variant="secondary">Notes</Badge>
                 </div>
-                <CardTitle className="text-lg leading-tight line-clamp-2">
+                <CardTitle className="text-lg leading-tight line-clamp-2 mt-2">
                   {note.title}
                 </CardTitle>
                 <div className="h-10 mt-2">
@@ -266,10 +266,10 @@ const Notes = () => {
                   )}
                 </div>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  
-                  <div className="flex items-center justify-between text-sm text-gray-600">
+              
+              <CardContent className="flex-1 flex flex-col justify-between space-y-4 pt-0">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between text-sm text-muted-foreground">
                     <div className="flex items-center space-x-1">
                       <User className="h-4 w-4" />
                       <ClickableUsername
@@ -284,31 +284,31 @@ const Notes = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-center justify-between text-sm text-gray-600">
-                    <span>{note.course} • {note.subject}</span>
-                    <span>{note.university}</span>
+                  <div className="text-sm text-muted-foreground p-2 bg-muted/30 rounded-md">
+                    <div className="font-medium">{note.course} • {note.subject}</div>
+                    <div className="text-xs mt-1">{note.university}</div>
                   </div>
-                  
-                  <div className="flex items-center justify-between">
-                    <VotingButtons 
-                      uploadId={note.id} 
-                      initialVotes={note.votes} 
-                    />
-                    <FileViewer
-                      filePath={note.file_path || ''}
-                      fileName={note.title}
-                      uploadTitle={note.title}
-                      externalLink={note.external_link}
+                </div>
+                
+                <div className="flex items-center justify-between pt-2 border-t">
+                  <VotingButtons 
+                    uploadId={note.id} 
+                    initialVotes={note.votes} 
+                  />
+                  <FileViewer
+                    filePath={note.file_path || ''}
+                    fileName={note.title}
+                    uploadTitle={note.title}
+                    externalLink={note.external_link}
+                  >
+                    <Button 
+                      variant="outline" 
+                      size="sm"
                     >
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                      >
-                        <ExternalLink className="h-4 w-4 mr-1" />
-                        {note.file_path ? 'View Notes' : 'Open Notes'}
-                      </Button>
-                    </FileViewer>
-                  </div>
+                      <ExternalLink className="h-4 w-4 mr-1" />
+                      View
+                    </Button>
+                  </FileViewer>
                 </div>
               </CardContent>
             </Card>
