@@ -42,7 +42,20 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   const signOut = async () => {
-    await supabase.auth.signOut();
+    try {
+      await supabase.auth.signOut();
+      // Clear local state immediately
+      setUser(null);
+      setLoading(false);
+      // Force page reload to clear any cached state
+      window.location.href = '/';
+    } catch (error) {
+      console.error('Error during sign out:', error);
+      // Even if logout fails, clear local state and redirect
+      setUser(null);
+      setLoading(false);
+      window.location.href = '/';
+    }
   };
 
   return (
