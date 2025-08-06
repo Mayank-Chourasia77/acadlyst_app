@@ -35,15 +35,24 @@ export const FileViewer: React.FC<FileViewerProps> = ({
 
     setIsLoading(true);
     try {
-      // Use signed URL for iframe viewing to avoid Chrome blocking
-      const { data, error } = await supabase.storage
+      // Get public URL for file access
+      const { data } = supabase.storage
         .from('notes')
-        .createSignedUrl(filePath, 3600); // 1 hour expiry
+        .getPublicUrl(filePath);
+      
+      // On mobile, open directly in new tab instead of iframe
+      const isMobile = window.innerWidth <= 768;
 
-      if (error) throw error;
-
-      setFileUrl(data.signedUrl);
-      setIsOpen(true);
+      if (isMobile) {
+        window.open(data.publicUrl, '_blank');
+        toast({
+          title: 'File Opened',
+          description: 'File opened in new tab for better mobile viewing.',
+        });
+      } else {
+        setFileUrl(data.publicUrl);
+        setIsOpen(true);
+      }
     } catch (error: any) {
       console.error('Error getting file URL:', error);
       toast({
