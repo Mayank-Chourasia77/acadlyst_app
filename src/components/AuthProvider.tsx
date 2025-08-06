@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { User } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
@@ -42,20 +41,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   const signOut = async () => {
-    try {
-      await supabase.auth.signOut();
-      // Clear local state immediately
-      setUser(null);
-      setLoading(false);
-      // Redirect to a protected route which will show the Auth component
-      window.location.href = '/notes';
-    } catch (error) {
-      console.error('Error during sign out:', error);
-      // Even if logout fails, clear local state and redirect
-      setUser(null);
-      setLoading(false);
-      window.location.href = '/notes';
-    }
+    await supabase.auth.signOut();
   };
 
   return (
