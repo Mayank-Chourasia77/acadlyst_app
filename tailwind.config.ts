@@ -68,6 +68,14 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-primary-hover': 'var(--gradient-primary-hover)',
+				'gradient-heart': 'var(--gradient-heart)',
+				'gradient-donate': 'var(--gradient-donate)',
+				'gradient-donate-hover': 'var(--gradient-donate-hover)',
+				'gradient-donate-border': 'var(--gradient-donate-border)',
+			},
 			keyframes: {
 				'accordion-down': {
 					from: {
@@ -84,11 +92,23 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'gradient-move': {
+					'0%': {
+						'background-position': '0% 50%'
+					},
+					'50%': {
+						'background-position': '100% 50%'
+					},
+					'100%': {
+						'background-position': '0% 50%'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'gradient-move': 'gradient-move 3s ease infinite',
 			}
 		}
 	},
