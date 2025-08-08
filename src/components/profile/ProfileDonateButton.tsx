@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Heart } from 'lucide-react';
@@ -50,17 +49,18 @@ export const ProfileDonateButton = ({ upiLink, userName }: ProfileDonateButtonPr
   };
 
   return (
-    <div className="relative group">
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-500 via-red-500 to-rose-500 rounded-lg opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-300" />
-      <Button
-        onClick={handleDonate}
-        variant="outline"
-        size="sm"
-        className="relative flex items-center space-x-2 bg-black text-white border-black hover:bg-gray-800 hover:border-gray-800 hover:text-white hover:scale-105 transition-all duration-300"
-      >
-        <Heart className="h-4 w-4 text-red-500 fill-red-500 group-hover:animate-pulse" />
-        <span>Support/Donate</span>
-      </Button>
+    <div className="inline-block group">
+      <div className="rounded-lg p-[3px] bg-transparent transition-[background-image,background-position] duration-300 bg-[length:200%_100%] bg-left group-hover:bg-gradient-donate-border group-hover:animate-[gradient-move_3s_linear_infinite]">
+        <Button
+          onClick={handleDonate}
+          variant="outline"
+          size="sm"
+          className="relative rounded-[calc(var(--radius)-3px)] flex items-center space-x-2 bg-black text-white border-transparent"
+        >
+          <Heart className="h-4 w-4 text-red-500 fill-red-500" />
+          <span>Support/Donate</span>
+        </Button>
+      </div>
     </div>
   );
 };
